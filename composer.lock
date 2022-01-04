@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1c71ef1dbc8bc1cf3ac9d7d89074f30d",
+    "content-hash": "ec795050a2bd9caf1a7950b72705bc50",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1709,6 +1709,58 @@
                 "source": "https://github.com/Masterminds/html5-php/tree/2.7.5"
             },
             "time": "2021-07-01T14:25:37+00:00"
+        },
+        {
+            "name": "mxr576/malicious_dependency",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "web/modules/custom/malicious_dependency",
+                "reference": "8b24811d430aa7ab79e7b325eb8fffafb3bc08b3"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "patches": {
+                    "drupal/core": {
+                        "Some important fix": "https://git.drupalcode.org/project/drupal/-/merge_requests/1604.diff"
+                    }
+                }
+            },
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "mxr576/module1",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "web/modules/custom/module1",
+                "reference": "8250a81b3bb8d8d104095b0b2a535214ea93522f"
+            },
+            "require": {
+                "mxr576/module2": "*"
+            },
+            "type": "drupal-module",
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "mxr576/module2",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "web/modules/custom/module2",
+                "reference": "037e6e8769c850b02ce46c7f52a323434fa5d628"
+            },
+            "require": {
+                "mxr576/malicious_dependency": "*"
+            },
+            "type": "drupal-module",
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "pear/archive_tar",
@@ -4873,8 +4925,10 @@
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "mxr576/module1": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],

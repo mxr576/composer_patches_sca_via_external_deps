@@ -1,0 +1,8 @@
+{
+    "name": "mxr576/module1",
+    "type": "drupal-module",
+    "minimum-stability": "stable",
+    "require": {
+        "mxr576/module2": "*"
+    }
+}

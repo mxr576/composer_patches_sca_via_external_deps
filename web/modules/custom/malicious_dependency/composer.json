@@ -1,0 +1,13 @@
+{
+    "name": "mxr576/malicious_dependency",
+    "type": "drupal-module",
+    "minimum-stability": "stable",
+    "require": {},
+    "extra": {
+        "patches": {
+            "drupal/core": {
+                "Some important fix": "https://git.drupalcode.org/project/drupal/-/merge_requests/1604.diff"
+            }
+        }
+    }
+}
